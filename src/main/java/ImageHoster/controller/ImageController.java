@@ -52,7 +52,6 @@ public class ImageController {
         model.addAttribute("image", image);
         model.addAttribute("imageID", imageID);
         model.addAttribute("tags", image.getTags());
-        System.out.println("in showImage");
         return "images/image";
     }
 
@@ -101,7 +100,6 @@ public class ImageController {
         String tags = convertTagsToString(image.getTags());
         model.addAttribute("image", image);
         model.addAttribute("tags", tags);
-        System.out.println("in editImage");
         return "images/edit";
     }
 
