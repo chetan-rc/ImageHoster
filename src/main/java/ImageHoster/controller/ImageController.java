@@ -52,6 +52,7 @@ public class ImageController {
         model.addAttribute("image", image);
         model.addAttribute("imageID", imageID);
         model.addAttribute("tags", image.getTags());
+        System.out.println("in showImage");
         return "images/image";
     }
 
@@ -96,10 +97,11 @@ public class ImageController {
     @RequestMapping(value = "/editImage")
     public String editImage(@RequestParam("imageId") Integer imageId, Model model) {
         Image image = imageService.getImage(imageId);
-
+        
         String tags = convertTagsToString(image.getTags());
         model.addAttribute("image", image);
         model.addAttribute("tags", tags);
+        System.out.println("in editImage");
         return "images/edit";
     }
 
@@ -179,7 +181,6 @@ public class ImageController {
     //Returns the string
     private String convertTagsToString(List<Tag> tags) {
         StringBuilder tagString = new StringBuilder();
-
         for (int i = 0; i <= tags.size() - 2; i++) {
             tagString.append(tags.get(i).getName()).append(",");
         }
